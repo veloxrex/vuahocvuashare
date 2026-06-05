@@ -13,13 +13,14 @@ interface ProductGridProps {
 const SKELETON_ASPECTS = ['aspect-[2/3]','aspect-[3/4]','aspect-[4/5]','aspect-[1/1]','aspect-[3/5]','aspect-[2/3]','aspect-[3/4]','aspect-[4/5]'];
 
 export function ProductGrid({ products, loading, error, view }: ProductGridProps) {
-  const masonryClass = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4';
+  const gridClass    = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4';
+  const masonryClass = 'columns-2 sm:columns-3 lg:columns-4 gap-x-3 sm:gap-x-4';
 
   if (loading) {
     return view === 'grid' ? (
       <div className={masonryClass}>
         {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className="bg-white rounded-2xl overflow-hidden animate-pulse">
+          <div key={i} className="break-inside-avoid mb-3 sm:mb-4 bg-white rounded-2xl overflow-hidden animate-pulse">
             <div className={`${SKELETON_ASPECTS[i]} bg-gray-200`} />
             <div className="p-2.5 space-y-2">
               <div className="h-3.5 bg-gray-200 rounded w-3/4" />
@@ -74,7 +75,7 @@ export function ProductGrid({ products, loading, error, view }: ProductGridProps
   }
 
   return (
-    <div className={masonryClass}>
+    <div className={gridClass}>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
