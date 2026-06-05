@@ -25,7 +25,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <>
       <div
-        className="group break-inside-avoid mb-3 sm:mb-4 flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-white cursor-pointer active:scale-95"
+        className="group flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-white cursor-pointer active:scale-95"
         onClick={() => setOpen(true)}
       >
         {/* Image + overlay */}
@@ -36,7 +36,7 @@ export function ProductCard({ product }: ProductCardProps) {
               alt={product.name}
               loading="lazy"
               referrerPolicy="no-referrer"
-              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           ) : (
             <div className="aspect-[3/4] flex items-center justify-center">
