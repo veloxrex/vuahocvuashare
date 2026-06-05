@@ -5,6 +5,12 @@ import type { Product } from '../types/product';
 export const SHEET_CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW_p5wcB-8H3yz16wzH5X7qNBfXGawENUUexjSgejRAKyf1Zi8OBF_jyDISyegZd1QVSsl9_Deev1P/pub?output=csv&gid=919908513';
 
+function cleanUrl(val: string | undefined): string {
+  const v = val?.trim() ?? '';
+  if (!v || v.toLowerCase() === 'null' || !v.startsWith('http')) return '';
+  return v;
+}
+
 export async function fetchProducts(): Promise<Product[]> {
   const response = await fetch(SHEET_CSV_URL);
 
@@ -32,8 +38,8 @@ export async function fetchProducts(): Promise<Product[]> {
             author: row['Tác giả']?.trim() ?? '',
             description: row['Mô tả ngắn']?.trim() ?? '',
             image: row['Ảnh bìa']?.trim() ?? '',
-            videoLink: row['Link video']?.trim() ?? '',
-            link: row['Link mua']?.trim() ?? '#',
+            videoLink: cleanUrl(row['Link video']),
+            link: cleanUrl(row['Link mua']) || '#',
             timestamp: row['Dấu thời gian']?.trim() ?? '',
           }));
         resolve(products);
