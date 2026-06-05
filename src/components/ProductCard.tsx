@@ -60,16 +60,18 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
 
           <div className="flex gap-1.5">
-            <a
-              href={product.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="flex-1 flex items-center justify-center gap-1 bg-[#e60023] active:bg-[#ad0818] text-white text-xs font-bold py-1.5 rounded-full transition-colors"
-            >
-              <ShoppingCart className="w-3.5 h-3.5" />
-              Mua ngay
-            </a>
+            {product.link && (
+              <a
+                href={product.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex-1 flex items-center justify-center gap-1 bg-[#e60023] active:bg-[#ad0818] text-white text-xs font-bold py-1.5 rounded-full transition-colors"
+              >
+                <ShoppingCart className="w-3.5 h-3.5" />
+                Mua ngay
+              </a>
+            )}
             {product.videoLink && (
               <a
                 href={product.videoLink}

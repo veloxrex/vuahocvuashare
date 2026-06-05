@@ -79,16 +79,18 @@ export function ProductModal({ product, imageUrl, onClose }: ProductModalProps) 
           )}
 
           <div className="flex flex-col gap-2.5">
-            <a
-              href={product.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#e60023] active:bg-[#ad0818] text-white font-bold py-3.5 rounded-2xl transition-colors shadow-md text-sm"
-            >
-              <ShoppingCart className="w-4 h-4" />
-              Mua ngay
-              <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-            </a>
+            {product.link && (
+              <a
+                href={product.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-[#e60023] active:bg-[#ad0818] text-white font-bold py-3.5 rounded-2xl transition-colors shadow-md text-sm"
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Mua ngay
+                <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+              </a>
+            )}
 
             {product.videoLink && (
               <a
