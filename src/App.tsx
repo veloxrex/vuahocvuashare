@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LayoutGrid, List } from 'lucide-react';
+import { LayoutGrid, List, RefreshCw } from 'lucide-react';
 import { SearchBar } from './components/SearchBar';
 import { ProductGrid } from './components/ProductGrid';
 import { useProducts } from './hooks/useProducts';
@@ -13,7 +13,7 @@ const BIO = {
 };
 
 export default function App() {
-  const { products, loading, error, searchQuery, setSearchQuery } = useProducts();
+  const { products, loading, error, searchQuery, setSearchQuery, refetch } = useProducts();
   const [view, setView] = useState<'grid' | 'list'>('grid');
 
   return (
@@ -49,7 +49,16 @@ export default function App() {
           <p className="text-xs font-medium text-gray-400">
             {loading ? 'Đang tải...' : searchQuery ? `${products.length} kết quả` : `${products.length} đầu sách`}
           </p>
-          <div className="flex items-center bg-white border border-gray-200 rounded-xl p-0.5 shadow-sm">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={refetch}
+              disabled={loading}
+              className="p-1.5 rounded-lg text-gray-400 hover:text-[#e60023] hover:bg-red-50 transition-all disabled:opacity-40"
+              title="Tải lại dữ liệu"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+            </button>
+            <div className="flex items-center bg-white border border-gray-200 rounded-xl p-0.5 shadow-sm">
             <button
               onClick={() => setView('grid')}
               className={`p-1.5 rounded-lg transition-all ${view === 'grid' ? 'bg-[#e60023] text-white shadow' : 'text-gray-400'}`}
@@ -62,6 +71,7 @@ export default function App() {
             >
               <List className="w-3.5 h-3.5" />
             </button>
+          </div>
           </div>
         </div>
       </div>
