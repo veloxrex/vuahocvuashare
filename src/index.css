@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 30rem; /* 480px */
+}
+
+.bg-pattern {
+  background-color: #f0f0f0;
+  background-image: radial-gradient(circle, #c4c4c4 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@media (min-width: 640px) {
+  @keyframes slideUp {
+    from { transform: translateY(16px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+}
