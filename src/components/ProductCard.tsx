@@ -1,4 +1,4 @@
-import { ShoppingCart, User, PlayCircle } from 'lucide-react';
+import { ShoppingCart, PlayCircle } from 'lucide-react';
 import { useState } from 'react';
 import type { Product } from '../types/product';
 import { ProductModal } from './ProductModal';
