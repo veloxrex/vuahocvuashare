@@ -27,7 +27,7 @@ export async function fetchProducts(): Promise<Product[]> {
             row['Link mua']?.trim()
           )
           .map((row, index) => ({
-            id: String(index + 1),
+            id: row['Mã sách']?.trim() || String(index + 1),
             name: row['Tên sách']?.trim() ?? '',
             author: row['Tác giả']?.trim() ?? '',
             description: row['Mô tả ngắn']?.trim() ?? '',

@@ -8,7 +8,7 @@ import logoImg from './assets/logo.jpg';
 
 const BIO = {
   avatar: logoImg,
-  name: 'Vừa làm Vừa share',
+  name: 'Vừa học vừa share',
   tagline: 'Sưu tầm các đầu sách chất lượng – review thật, giá tốt',
 };
 

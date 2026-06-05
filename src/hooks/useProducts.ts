@@ -21,7 +21,9 @@ export function useProducts() {
       !q ||
       p.name.toLowerCase().includes(q) ||
       p.description.toLowerCase().includes(q) ||
-      p.author.toLowerCase().includes(q)
+      p.author.toLowerCase().includes(q) ||
+      `#${p.id.padStart(3, '0')}`.includes(q) ||
+      p.id.includes(q)
     );
   }, [products, searchQuery]);
 

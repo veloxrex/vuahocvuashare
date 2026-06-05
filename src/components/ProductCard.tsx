@@ -52,10 +52,10 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="p-3 flex flex-col gap-2">
           <div>
             <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-snug line-clamp-2">
-              {product.name}
+              <span className="text-[#e60023]">#{product.id} </span>{product.name}
             </h3>
             {product.author && (
-              <p className="text-xs sm:text-sm text-gray-400 mt-0.5 truncate">{product.author}</p>
+              <p className="text-xs sm:text-sm text-gray-400 truncate">{product.author}</p>
             )}
           </div>
 
