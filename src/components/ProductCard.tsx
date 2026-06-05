@@ -25,11 +25,11 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <>
       <div
-        className="group flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-white cursor-pointer active:scale-95"
+        className="group flex flex-col h-full rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 bg-white cursor-pointer active:scale-95"
         onClick={() => setOpen(true)}
       >
         {/* Image + overlay */}
-        <div className="relative overflow-hidden bg-gray-100">
+        <div className="relative overflow-hidden bg-gray-100 aspect-[3/4] w-full shrink-0">
           {imageUrl ? (
             <img
               src={imageUrl}
@@ -39,7 +39,7 @@ export function ProductCard({ product }: ProductCardProps) {
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           ) : (
-            <div className="aspect-[3/4] flex items-center justify-center">
+            <div className="w-full h-full flex items-center justify-center">
               <ShoppingCart className="w-10 h-10 text-gray-300" />
             </div>
           )}
@@ -49,17 +49,17 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Content — minimal */}
-        <div className="p-3 flex flex-col gap-2">
-          <div>
+        <div className="p-3 flex flex-col flex-1 gap-2">
+          <div className="flex-1">
             <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-snug line-clamp-2">
               <span className="text-[#e60023]">#{product.id} </span>{product.name}
             </h3>
             {product.author && (
-              <p className="text-xs sm:text-sm text-gray-400 truncate">{product.author}</p>
+              <p className="text-xs sm:text-sm text-gray-400 truncate mt-0.5">{product.author}</p>
             )}
           </div>
 
-          <div className="flex gap-1.5">
+          <div className="flex gap-1.5 mt-auto">
             {product.link && (
               <a
                 href={product.link}

@@ -13,7 +13,7 @@ interface ProductGridProps {
 const SKELETON_ASPECTS = ['aspect-[2/3]','aspect-[3/4]','aspect-[4/5]','aspect-[1/1]','aspect-[3/5]','aspect-[2/3]','aspect-[3/4]','aspect-[4/5]'];
 
 export function ProductGrid({ products, loading, error, view }: ProductGridProps) {
-  const gridClass    = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4';
+  const gridClass    = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5';
   const masonryClass = 'columns-2 sm:columns-3 lg:columns-4 gap-x-3 sm:gap-x-4';
 
   if (loading) {
