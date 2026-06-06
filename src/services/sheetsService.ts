@@ -3,7 +3,7 @@ import type { Product } from '../types/product';
 
 // Published CSV URL từ Google Sheets
 export const SHEET_CSV_URL =
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW_p5wcB-8H3yz16wzH5X7qNBfXGawENUUexjSgejRAKyf1Zi8OBF_jyDISyegZd1QVSsl9_Deev1P/pub?output=csv&gid=919908513';
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW_p5wcB-8H3yz16wzH5X7qNBfXGawENUUexjSgejRAKyf1Zi8OBF_jyDISyegZd1QVSsl9_Deev1P/pub?output=csv&gid=919908513&single=true';
 
 function cleanUrl(val: string | undefined): string {
   const v = val?.trim() ?? '';
